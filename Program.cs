@@ -1,21 +1,23 @@
-﻿namespace DSA_CSharp
+﻿using System.Transactions;
+
+namespace DSA_CSharp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Doublyll list = new Doublyll();
+            Circularll list = new Circularll();
 
-            list.Addlast(10);
-            list.Addlast(20);
-            list.Addlast(30);
-            list.Addlast(40);
-            list.Addlast(50);
+            list.Add_last(10);
+            list.Add_last(20);
+            list.Add_last(30);
+            list.Add_last(40);
+            list.Add_last(50);
 
             int choice, value;
 
             while (true)
-            {
+            {   
                 Console.WriteLine("\n--- Doubly Linked List ---");
                 Console.WriteLine("1. Add First");
                 Console.WriteLine("2. Add Last");
@@ -34,12 +36,12 @@
                     case 1:
                         Console.WriteLine("Enter value to add at the beginning: ");
                         value = Convert.ToInt32(Console.ReadLine());
-                        list.Addfirst(value);
+                        list.Add_first(value);
                         break;
                     case 2:
                         Console.WriteLine("Enter value to add at the end: ");
                         value = Convert.ToInt32(Console.ReadLine());
-                        list.Addlast(value);
+                        list.Add_last(value);
                         break;
                     case 3:
                         Console.WriteLine("Enter value to add : ");
@@ -50,10 +52,14 @@
                         break;
 
                     case 4:
-                        list.Removefirst();
+                        list.Remove_first();
                         break;
                     case 5:
-                        list.Removefirst();
+                        list.Remove_last();
+                        break;
+                    case 6:
+                        int remove_index = int.Parse(Console.ReadLine());
+                        list.Remove_at_index(remove_index);
                         break;
                     case 7:
                         list.Print();
